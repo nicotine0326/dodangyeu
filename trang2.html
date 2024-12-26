@@ -1,0 +1,70 @@
+<html lang="en">
+    <head>
+        <title>Nghịch thôi</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styletrang2.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="card">
+           <h1>Hỏi thăm nhau tí</h1>
+            <div class="card_word">Cậu có khỏe không???</div>
+            <button class="answer" onclick="selectAnswer('Cũng biết trả lời có hả, thôi được rồi, khỏe là được', 1)">Có</button>
+            <button class="answer" onclick="selectAnswer('Gà thế, mới sang đông mà đã không khỏe rồi', 2)">Không</button>
+            <button class="answer" onclick="selectAnswer('Đỉnh không???, bình thường làm gì có ai cho thêm lựa chọn không biết như tớ được', 3)">Không biết</button>
+            <div class="overlay" id="overlay"></div>
+            <div id="wrapper">
+                <a href="#" class="button" id="nextButton" onclick="goToNextPage()">
+                    <span class="button-text">Tiếp</span>
+                </a>
+            </div>
+        </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Pop-up -->
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+            <div id="popup-content"></div>
+            <button class="close" onclick="closePopup()">Đóng</button>
+        </div>
+        <script>
+             // Biến lưu trạng thái trả lời
+        let answersSelected = { 1: false, 2: false, 3: false };
+
+// Hàm hiển thị pop-up
+function showPopup(message) {
+    document.getElementById('popup-content').innerText = message;
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+// Hàm đóng pop-up
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+// Hàm xử lý khi người dùng chọn câu trả lời
+function selectAnswer(message, questionId) {
+    showPopup(message); // Hiển thị nội dung pop-up
+    answersSelected[questionId] = true; // Đánh dấu câu trả lời đã được chọn
+}
+
+// Hàm chuyển trang
+function goToNextPage() {
+    // Kiểm tra xem tất cả câu trả lời đã được chọn chưa
+    const allAnswered = Object.values(answersSelected).every((selected) => selected);
+
+    if (allAnswered) {
+        // Nếu đã chọn hết, chuyển sang trang tiếp theo
+        window.location.href = "trang3.html"; // Thay bằng đường dẫn trang tiếp theo
+    } else {
+        // Nếu chưa chọn đủ, hiển thị thông báo
+        showPopup("Bấm hết các câu trả lời đã ");
+    }
+}         
+        </script>
+    </body>
+</html>

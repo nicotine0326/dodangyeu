@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nghịch thôi</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="boxheart">
+            <div class="heart"><h1>Bấm vô đi</h1></div>
+            <div class="beat"></div>
+        </div>
+        <script>
+            let boxheart = document.querySelector(".boxheart");
+            let boxchoose = document.querySelector(".boxchoose");
+            let popup = document.querySelector(".popup");
+            boxheart.addEventListener("click", function () {
+            window.location.href = "phaohoa.html"; // Đường dẫn đến trang mới
+            });
+            yesBtn.addEventListener("click", function () {
+                popup.classList.add("active");
+            });
+            noBtn.addEventListener("mouseenter", () => {
+                const top = Math.floor(Math.random() * window.innerHeight);
+                const left = Math.floor(Math.random() * window.innerWidth);
+
+                noBtn.style.top = `${top}px`;
+                noBtn.style.left = `${left}px`;
+            });
+        </script>
+    </body>
+</html>
