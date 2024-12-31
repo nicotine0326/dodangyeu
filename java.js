@@ -2295,7 +2295,7 @@ if (IS_HEADER) {
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.getElementById("popup").classList.remove("hidden");
-  }, 7000); // Hiển thị pop-up sau 5 giây
+  }, 10000); // Hiển thị pop-up sau 5 giây
 });
 
 function closePopup() {
